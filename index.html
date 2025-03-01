@@ -3,233 +3,151 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vertical Menu with iframe</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="logout.css" />
+    <title>Login Form</title>
     <style>
-      * {
+      /* General Styles */
+      body {
         margin: 0;
-        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Login Form Container */
+      .login-container {
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+      }
+
+      /* Form Heading */
+      .login-form h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      /* Form Groups */
+      .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        outline: none;
         box-sizing: border-box;
       }
 
-      body {
-        font-family: Arial, sans-serif;
-        overflow-x: hidden;
-      }
-
-      .container {
-        display: flex;
-      }
-
-      .vertical-menu {
-        width: 250px;
-        height: 100vh;
-        background-color: #1b3451;
+      /* Button */
+      .btn {
+        background: #007bff;
         color: white;
-        position: fixed;
-        left: 0;
-        top: 0;
-        padding: 20px;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
-
-      .vertical-menu a {
-        display: flex;
-        align-items: center;
-        padding: 15px;
-        text-decoration: none;
-        color: white;
-        margin-bottom: 10px;
+        border: none;
+        padding: 10px 20px;
         border-radius: 5px;
-        transition: all 0.3s ease;
-      }
-
-      .vertical-menu a:hover {
-        background-color: #184375;
-        color: white;
-      }
-
-      .vertical-menu a i {
-        margin-right: 10px;
-        font-size: 20px;
-      }
-
-      .content-area {
-        margin-left: 250px;
-        width: calc(100% - 250px);
-        height: 100vh;
-      }
-
-      #mainFrame {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-      .btn-menu {
-        position: relative;
-      }
-
-      .menu-toggle {
-        position: absolute;
-        display: none;
-        font-size: 10px;
-        top: 30px;
-        right: 27px;
-        z-index: 1000;
-        background: #2a6099;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 2px;
         cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s;
+        width: 100%;
       }
-      .menu-toggle:hover {
-        background-color: #044fa5;
+
+      .btn:hover {
+        background: #0056b3;
       }
 
-      @media (max-width: 800px) {
-        .vertical-menu {
-          transform: translateX(-100%);
-          z-index: 999;
-        }
+      /* Register Link */
+      .register-link {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #555;
+      }
 
-        .vertical-menu.active {
-          transform: translateX(0);
-        }
+      .register-link a {
+        color: #007bff;
+        text-decoration: none;
+      }
 
-        .content-area {
-          margin-left: 0;
-          width: 100%;
-        }
-
-        .menu-toggle {
-          display: block;
-        }
-
-    
-
-         
-
-         
-
-
-
-
+      .register-link a:hover {
+        text-decoration: underline;
+      }
+      img{
+        width: 90px;
+        height: 30px;
       }
     </style>
   </head>
   <body>
-    <div class="btn-menu">
-      <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
-    </div>
-
-    <div class="container">
-      <nav class="vertical-menu" id="verticalMenu">
-        <a href="Home.html" onclick="loadPage(event, 'Home.html')">
-          <i class="fa-solid fa-house"></i> Home
-        </a>
-        <a href="product.html" onclick="loadPage(event, 'product.html')">
-          <i class="fa-brands fa-product-hunt"></i> Products
-        </a>
-        <a href="SerVices.html" onclick="loadPage(event, 'SerVices.html')">
-          <i class="fa-solid fa-gear"></i> Services
-        </a>
-        <a href="Security.html" onclick="loadPage(event, 'Security.html')">
-          <i class="fa-solid fa-shield-halved"></i> Security
-        </a>
-        <a
-          href="#"
-          onclick="showLogoutDialog(); toggleMenuIfMobile();"
-          class="exit-link"
-        >
-          <i class="fa-solid fa-right-from-bracket"></i> Exit
-        </a>
-      </nav>
-
-      <!-- Logout Confirmation Dialog -->
-      <div id="logoutDialog" class="dialog-overlay hidden">
-        <div class="dialog-box">
-          <h3>Confirm Logout</h3>
-          <p>Are you sure you want to log out?</p>
-          <div class="dialog-buttons">
-            <button onclick="confirmLogout()" class="btn confirm-btn">
-              Logout
-            </button>
-            <button onclick="closeLogoutDialog()" class="btn cancel-btn">
-              Cancel
-            </button>
-          </div>
-        </div>
+    <div class="login-container">
+      <div class="text-end">
+        <img src="image/logo-aib.png" alt="">
       </div>
-
-      <main class="content-area">
-        <iframe
-          id="mainFrame"
-          src=""
-          title="Content Frame"
-        ></iframe>
-      </main>
+      <form id="loginForm" class="login-form">
+        <h2>Login</h2>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <p class="register-link">
+          Don't have an account? <a href="#">Register here</a>
+        </p>
+      </form>
     </div>
-
-    <script>
-      // Load the default page (Home) when the program starts
-      document.addEventListener("DOMContentLoaded", function () {
-        loadPage(new Event("click"), "Home.html");
-      });
-
-      // Show the logout dialog
-      function showLogoutDialog() {
-        const dialog = document.getElementById("logoutDialog");
-        dialog.classList.remove("hidden");
-      }
-
-      // Close the logout dialog
-      function closeLogoutDialog() {
-        const dialog = document.getElementById("logoutDialog");
-        dialog.classList.add("hidden");
-      }
-
-      // Confirm logout action
-      function confirmLogout() {
-        window.location.href = "Login.html"; // Replace with your logout logic
-      }
-
-      function loadPage(event, url) {
-        event.preventDefault();
-        document.getElementById("mainFrame").src = url;
-
-        // Close menu on mobile after selection
-        if (window.innerWidth <= 800) {
-          toggleMenu();
-        }
-      }
-
-      function toggleMenuIfMobile() {
-        if (window.innerWidth <= 800) {
-          toggleMenu();
-        }
-      }
-
-      function toggleMenu() {
-        document.getElementById("verticalMenu").classList.toggle("active");
-      }
-
-      // Close menu when clicking outside on mobile
-      document.addEventListener("click", function (event) {
-        if (window.innerWidth <= 800) {
-          const menu = document.getElementById("verticalMenu");
-          const menuBtn = document.querySelector(".menu-toggle");
-
-          if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
-            menu.classList.remove("active");
-          }
-        }
-      });
-    </script>
   </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Mock validation (replace with your actual validation logic)
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Show success message using SweetAlert
+    Swal.fire({
+      title: "Login Successful!",
+      text: "Redirecting to the homepage...",
+      icon: "success",
+      confirmButtonText: "OK",
+      confirmButtonColor: "#007BFF",
+    }).then(() => {
+      // Redirect to index.html
+      window.location.href = "MainPage.html";
+    });
+  });
+</script>
