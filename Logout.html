@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Logout</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Logout form container */
+.logout-form-container {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+/* Title and text */
+.logout-form-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.logout-form-container p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-btn {
+    background-color: #ff4b5c;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #e63a4a;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background-color: #bbb;
+}
+
+    </style>
+</head>
+<body>
+    <div class="logout-form-container">
+        <h2>Logout</h2>
+        <p>Are you sure you want to log out?</p>
+        <form action="logout.php" method="POST">
+            <div class="button-group">
+                <button type="submit" class="btn confirm-btn">Yes, Logout</button>
+                <button type="button" class="btn cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

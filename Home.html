@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <style>
+      .container {
+       
+        position: relative;
+        width: 100%;
+        height: 600px;
+        padding: 0;
+        background-color: rgb(255, 255, 255);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .Header {
+        padding-top: 0.2px;
+        padding-bottom: 2px;
+        height: 60px;
+        color: white;
+        background-color: #1b3451;
+      }
+      .image {
+        position: absolute;
+        top: 70px;
+        width: 430px;
+        height: 500px;
+        background-color: rgb(65, 206, 124);
+        clip-path: polygon(0 45%, 100% 0, 100% 100%);
+      }
+      .image1 {
+        position: absolute;
+        top: 9.7rem;
+        left: 7rem;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+      }
+      .image2 {
+        position: absolute;
+        top: 5rem;
+        left: 16rem;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+      }
+
+      .image4 {
+        position: absolute;
+        top: 15.7rem;
+        left: 16rem;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+      }
+      .border {
+        position: absolute;
+        border-left: 5px solid rgb(213, 153, 0); /* Creates a vertical line */
+        height: 350px; /* Adjust height as needed */
+        margin: 90px 0 0 500px; /* Space around the line */
+      }
+
+      .profile{
+        background-color: aliceblue;
+        padding: 5px;
+        position: absolute;
+        top: 7px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top;
+        cursor: pointer;
+      }
+
+/* -------- */
+  
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+            object-fit: cover;
+            object-position :top;
+            transition: transform 0.3s ease;
+        }
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+           
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #333;
+        }
+        .profile-details {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .profile-details div {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .profile-details strong {
+            display: inline-block;
+            width: 50px;
+            margin-right: 10px;
+        }
+        /* Responsive adjustments for text wrapping */
+@media (max-width: 768px) {
+    .container {          
+       height: 900px;     
+     }
+  .border p {
+    word-wrap: break-word; /* Break long words onto the next line */
+    word-break: break-word; /* Ensure proper word breaking */
+    white-space: normal; /* Allow text to wrap */
+    padding: 10px; /* Adjust padding for better appearance */
+    font-size: 14px; /* Adjust font size for readability */
+  }
+  
+  .border {
+    margin: 30rem auto; /* Center border */
+    width: 90%; /* Reduce border width for smaller screens */
+  }
+  
+  .container {
+    padding: 10px; /* Add padding for smaller screens */
+  }
+  .text{
+    font-size: 15px;
+  }
+  .profile{    
+        left: 30px;
+        top: 16px;    
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top; 
+      }
+
+      .modal {       
+            width: 100%;
+            height: 100%;        
+        }
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="Header">
+        <h1 class="text" style="text-align: center">Welcome to Flower website</h1>
+     
+            <img class="profile" src="image/photo_2024-03-05_12-45-30.jpg" alt="" id="profileImage" >
+         
+      </div>
+      
+      <div class="image">
+        <img class="image1" src="image/download (2).jpg" alt="" />
+        <img class="image2" src="image/download (4).jpg" alt="" />
+        <img class="image4" src="image/images (1).jpg" alt="" />
+      </div>
+      <div class="border">
+        <p style="padding-left: 10px">
+          At  Flower Shop FT Love , we believe flowers are more than just
+          beautiful blooms – they’re the perfect way to express love,
+          appreciation, and joy. Whether you're celebrating a special occasion,
+          sending heartfelt wishes, or simply brightening someone’s day, we have
+          the perfect floral arrangement for you.
+        </p>
+        <br /><br />
+        <p style="padding-left: 10px;">
+          Why Choose Us? Quality & Freshness: Our flowers are always fresh, 
+          sourced directly from trusted growers, and arranged by skilled
+          florists. Personalized Service: Our team is passionate about 
+          helping
+          you choose the perfect flowers. We listen to your needs and provide
+          recommendations that align with your vision. Satisfaction Guaranteed:
+          We take pride in our work and guarantee that you'll be delighted with
+          every arrangement you receive. Our Promise At [Your Flower Shop Name],
+          we’re more than just a flower shop. We’re here to help you share
+          emotions, create memories, and make moments beautiful. Whether it's a
+          gift for someone sp.
+        </p>
+      </div>
+    </div>
+     <!-- Profile Modal -->
+     <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>My Profile</h2>
+            
+            <img src="image/photo_2024-03-05_12-45-30.jpg" alt="Profile" class="profile-image" style="width: 150px; height: 150px;">
+            
+            <div  class="profile-details ">
+                <div>
+                    <strong><i class="fa-solid fa-user"></i></strong>
+                    <span>Khom Chetra</span>
+                </div>
+                <div>
+                    <strong style="color: #ffc800;"><i class="fa-solid fa-envelope"></i></strong>
+                    <span>khomchetra@gmail.com</span>
+                </div>
+                <div>
+                    <strong style="color: rgb(0, 136, 255);"><i class="fa-solid fa-phone"></i></strong>
+                    <span>024 234 432</span>
+                </div>
+                <div>
+                    <strong style="color: blue;"><i class="fa-solid fa-location-dot"></i></strong>
+                    <span>Phnom Penh, Cambodia</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+     $(document).ready(function() {
+        // Get the modal
+        var modal = $("#profileModal");
+        
+        // Get the profile image
+        var profileImage = $("#profileImage");
+        
+        // Get the <span> element that closes the modal
+        var span = $(".close");
+        
+        // When the user clicks the profile image, open the modal 
+        profileImage.on("click", function() {
+            modal.show();
+        });
+        
+        // When the user clicks on <span> (x), close the modal
+        span.on("click", function() {
+            modal.hide();
+        });
+        
+        // When the user clicks anywhere outside of the modal, close it
+        $(window).on("click", function(event) {
+            if ($(event.target).is(modal)) {
+                modal.hide();
+            }
+        });
+    });
+</script>

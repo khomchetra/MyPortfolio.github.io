@@ -1,0 +1,88 @@
+/* General reset */
+
+
+.exit-link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+}
+
+.exit-link i {
+    margin-right: 5px;
+}
+
+/* Dialog overlay */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hidden by default */
+.hidden {
+    display: none;
+}
+
+/* Dialog box */
+.dialog-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dialog text */
+.dialog-box h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.dialog-box p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.dialog-buttons {
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-btn {
+    background-color: #ff4b5c;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #e63a4a;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background-color: #bbb;
+}
